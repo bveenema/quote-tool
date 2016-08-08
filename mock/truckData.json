@@ -1,0 +1,7 @@
+[
+	{"type": "Trailer", "rate": 120, "capacity": 48000},
+	{"type": "Boom", "rate": 140, "capacity": 27260},
+	{"type": "Customer Pickup", "rate": 0},
+	{"type": "LTL", "rate": 0},
+	{"type": "Common Carrier", "rate": 0}
+]

@@ -30,13 +30,34 @@
 		margin-right: 5%;
 	}
 
-	/*.form-field ul {
-		width: 95%;
-		margin: 10px auto;
-		text-align: center;
+	.form-field {
+		max-width: none;
 	}
 
-	.form-field label {
+	.form-section {
+		float: left;
+		width: 40%;
+		margin: 0 0 0 3%;
+		padding: 0 0 0 3%;
+		border-left: 1px solid black;
+	}
+
+	.first {
+		border: none;
+		/*margin: 0;*/
+		/*padding: 0;*/
+	}
+
+	.dot-nav {
+		clear: both;
+	}
+
+	.form-field ul {
+		width: 100%;
+		margin: 10px auto;
+	}
+
+	/*.form-field label {
 		display: inline-block;
 		text-align: left;
 		font: normal 1.5em sans-serif;
