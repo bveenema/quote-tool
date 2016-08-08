@@ -2,7 +2,7 @@
 	{	"series": "Freestanding Series",
 		"blocks" : 
 			[
-				{"name": "Half Straight Middle (2 Sided)", "weight": 762, "highlighted": true},
+				{"name": "Half Straight Middle (2 Sided)", "weight": 762, "highlighted": true, "counted": [0]},
 				{"name": "Half Middle Corner (3 Sided)", "weight": 755, "highlighted": true},
 				{"name": "Half Top Corner (3 Sided)", "weight": 741, "highlighted": true},
 				{"name": "Half Garden Corner (3 Sided)", "weight": 607, "highlighted": true},

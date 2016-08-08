@@ -1,15 +1,15 @@
 <div>
-	<h2>Total Weight: {{totalWeight}} lbs</h2><a href="" ng-click="addWall()">+ Add Wall</a>
+	<h2>Total Weight: {{totalWeight}} lbs</h2>
 	<div id="load-builder">
 		<ul>
 			<div ng-repeat="type in blocks">
 				<h3>{{type.series}}</h3>
 				<li class="labels">
-					<span class="type">Name:</span><span>{{wallNumber+1}}</span>
+					<span class="type">Name:</span><span ng-repeat="wall in walls">{{walls[$index]}}</span><a href="" ng-click="addWall()">+</a>
 				</li>
 				<li ng-repeat="block in type.blocks" ng-class="{'highlighted': block.highlighted}">
 					<label>{{block.name}}</label>
-			    	<input type="text" ng-model="count" ng-keyup="sumWeights(block, count)">
+			    	<input type="text" ng-repeat="wall in walls" ng-model="count" ng-keyup="sumWeights(block, count, $index)">
 				</li>
 			</div>
 		</ul>
