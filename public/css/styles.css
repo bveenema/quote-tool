@@ -146,6 +146,7 @@ nav a.selected {
 
 #load-builder li.labels {
 	background-color: #fff;
+	font-size: .9em;
 	font-weight: bold;
 }
 
@@ -153,6 +154,16 @@ nav a.selected {
 	display: inline-block;
 	width: 29px;
 	text-align: center;
+}
+
+#load-builder h3 {
+	margin: 20px 0 5px 0;
+}
+
+#load-builder a:link, #load-builder a:visited{
+	text-decoration: none;
+	font: 1.2em bold black;
+	padding: 5px 15px;
 }
 /*************************************
 /Dot Nav
