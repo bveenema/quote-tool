@@ -2,7 +2,7 @@
 /HEADER
 /************************************/
 header {
-	background-color: #777;
+	background-color: #53545B;
 	box-shadow: 0 1px 0 0 #000;
 	min-height: 80px;
 }
@@ -40,11 +40,11 @@ nav li {
 nav a {
 	font-size: 1.75em;
 	text-decoration: none;
-	color: #fff;
+	color: #aaa;
 }
 
 nav a.selected {
-	color: #000;
+	color: #fff;
 }
 
 .header-icons {
@@ -62,10 +62,18 @@ nav a.selected {
 /*************************************
 /Main Body
 /************************************/
+body {
+
+	background-color: #F1F2F4;
+}
+
 .body-wrapper {
 	width: 100%;
 	margin: 0 auto;
 	max-width: 1000px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	box-shadow: 2px 2px 1px #999;
 }
 
 /*************************************
