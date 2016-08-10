@@ -68,12 +68,13 @@ body {
 }
 
 .body-wrapper {
-	width: 100%;
+	width: 97%;
 	margin: 0 auto;
 	max-width: 1000px;
 	background-color: #fff;
-	border: 1px solid #ddd;
-	box-shadow: 2px 2px 1px #999;
+	/*border: 1px solid #ddd;*/
+	box-shadow: 0 2px 4px rgba(0,0,0,.24),  0 0 2px rgba(0,0,0,.12);
+	/*box-shadow: 2px 2px 1px #999;*/
 }
 
 /*************************************
