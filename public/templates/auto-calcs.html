@@ -1,13 +1,25 @@
 <div>
 	<ul id="auto-calcs">
 		<li>
-			<h3>Engineering Fee</h3><label>${{engineeringFee}}</label><input type="text">
+			<h3>Engineering Fee</h3>
+			<label ng-click="editing1=true; focusInput1=true">$
+				<span ng-hide="editing1">{{engineeringFee}}</span>
+			</label>
+			<input focus-me="focusInput1" ng-show='editing1' ng-blur="editing1=false" ng-model="engineeringFee" type="text">
 		</li>
 		<li>
-			<h3>Delivery Time</h3><label>{{deliveryTime}} hrs</label><input type="text">
+			<h3>Delivery Time</h3>
+			<input focus-me="focusInput2" ng-show='editing2' ng-blur="editing2=false" ng-model="deliveryTime" type="text">
+			<label ng-click="editing2=true; focusInput2=true">
+				<span ng-hide="editing2">{{deliveryTime}}</span> hrs
+			</label>
 		</li>
 		<li>
-			<h3>Delivery Charge</h3><label>${{deliveryCharge}}</label><input type="text">
+			<h3>Delivery Charge</h3>
+			<label ng-click="editing3=true; focusInput3=true">$
+				<span ng-hide="editing3">{{deliveryCharge}}</span>
+			</label>
+			<input focus-me="focusInput3" ng-show='editing3' ng-blur="editing3=false" ng-model="deliveryCharge" type="text">
 		</li>
 	</ul>
 </div>

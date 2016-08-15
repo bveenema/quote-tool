@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('quotingToolApp')
-.controller('projectInfoCtrl', function($scope, dataService) {
+.controller('projectInfoCtrl', ['$scope', '$compile', 'dataService', function($scope,$compile, dataService) {
   $scope.trucks = [];
   
-  dataService.getTrucks(function(response) { 
-      console.log(response.data);  
-      $scope.trucks = response.data;
+  dataService.getTrucks(function(response) {
+      $scope.trucks = response.data.trucks;
+      console.log($scope.trucks);  
     });
 
 
-});
+}]);

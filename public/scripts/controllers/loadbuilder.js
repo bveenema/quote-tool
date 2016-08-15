@@ -10,13 +10,13 @@ angular.module('quotingToolApp')
   
   
   dataService.getBlocks(function(response) { 
-      response.data.forEach(function(object){
+      response.data.blocks.forEach(function(object){
         object.blocks.forEach(function(block){
           block.count = [];
         })
         
       })
-      $scope.blocks = response.data;
+      $scope.blocks = response.data.blocks;
       console.log($scope.blocks);
     });
 
