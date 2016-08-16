@@ -6,16 +6,162 @@
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
 </head>
-<body ng-app="quotingTooApp" ng-cloak>
+<body ng-app="quotingToolApp">
+
+  <div ng-controller="projectInfoCtrl" ng-cloak>
+    <md-toolbar layout="row" layout-align="center center" class="zero md-primary md-hue-1" md-whiteframe="2">
+      <div flex="66" class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+          <md-icon md-svg-icon="img/icons/user.svg"></md-icon>
+        </md-button>
+        <h2>
+          Quote Tool
+        </h2>
+        <span flex></span>
+        <md-button class="md-primary md-raised">
+          Project Info
+        </md-button>
+        <md-button class="md-accent md-raised md-hue-1">
+          Load Builder
+        </md-button>
+        <md-button class="md-warn md-raised">
+          Auto Calcs
+        </md-button>
+        <md-button class="md-primary md-raised">
+          Quote
+        </md-button>
+        <md-button class="md-primary md-raised">
+          Contact
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <md-icon md-svg-icon="img/icons/user.svg" style="color: greenyellow;"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="More">
+          <md-icon md-svg-icon="img/icons/user.svg"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-content style="margin-top: 70px" layout="column" layout-align="center center" md-whiteframe="1">
+
+
+      <md-card style="width: 1000px" flex="66">
+        <md-card-header>
+          <md-card-header-text>
+            <span class="md-title">Title</span>
+            <span class="md-subhead">Sub header</span>
+          </md-card-header-text>
+        </md-card-header>
+        <img ng-src="card-image.png" class="md-card-image" alt="image caption">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card headline</span>
+            <span class="md-subhead">Card subheader</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+          <md-card-icon-actions>
+            <md-button class="md-icon-button" aria-label="icon">
+              <md-icon md-svg-icon="icon"></md-icon>
+            </md-button>
+          </md-card-icon-actions>
+        </md-card-actions>
+        <md-card-content>
+          <p>
+           Card content
+          </p>
+        </md-card-content>
+      </md-card>
+
+      <section md-whiteframe="1">
+        <md-tabs flex="66" md-dynamic-height md-border-bottom>
+          <md-tab label="Project Info">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Tab One</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+            </md-content>
+          </md-tab>
+          <md-tab label="Load Builder">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Tab Two</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+              <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+              <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+            </md-content>
+          </md-tab>
+          <md-tab label="Auto Calcs">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Tab Three</h1>
+              <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </section>
+    </md-content>
+
+    <md-button class="md-default">Click me</md-button>
+    <md-button class="md-default md-hue-1">Click me</md-button>
+    <md-button class="md-default md-hue-2">Click me</md-button>
+    <md-button class="md-default md-hue-3">Click me</md-button>
+    <md-button class="md-default md-raised">Click me</md-button>
+    <md-button class="md-default md-hue-1 md-raised">Click me</md-button>
+    <md-button class="md-default md-hue-2 md-raised">Click me</md-button>
+    <md-button class="md-default md-hue-3 md-raised">Click me</md-button>
+    <br>
+    <md-button class="md-primary">Click me</md-button>
+    <md-button class="md-primary md-hue-1">Click me</md-button>
+    <md-button class="md-primary md-hue-2">Click me</md-button>
+    <md-button class="md-primary md-hue-3">Click me</md-button>
+    <md-button class="md-primary md-raised">Click me</md-button>
+    <md-button class="md-primary md-hue-1 md-raised">Click me</md-button>
+    <md-button class="md-primary md-hue-2 md-raised">Click me</md-button>
+    <md-button class="md-primary md-hue-3 md-raised">Click me</md-button>
+    <br>
+    <md-button md-no-ink class="md-primary">Click me</md-button>
+    <md-button md-no-ink class="md-primary md-hue-1">Click me</md-button>
+    <md-button md-no-ink class="md-primary md-hue-2">Click me</md-button>
+    <md-button md-no-ink class="md-primary md-hue-3">Click me</md-button>
+    <md-button md-no-ink class="md-primary md-raised">Click me</md-button>
+    <md-button md-no-ink class="md-primary md-hue-1 md-raised">Click me</md-button>
+    <md-button md-no-ink class="md-primary md-hue-2 md-raised">Click me</md-button>
+    <md-button md-no-ink class="md-primary md-hue-3 md-raised">Click me</md-button>
+    <br>
+    <md-button class="md-accent">or maybe me</md-button>
+    <md-button class="md-accent md-hue-1">or maybe me</md-button>
+    <md-button class="md-accent md-hue-2">or maybe me</md-button>
+    <md-button class="md-accent md-hue-3">or maybe me</md-button>
+    <md-button class="md-accent md-raised">or maybe me</md-button>
+    <md-button class="md-accent md-hue-1 md-raised">or maybe me</md-button>
+    <md-button class="md-accent md-hue-2 md-raised">or maybe me</md-button>
+    <md-button class="md-accent md-hue-3 md-raised">or maybe me</md-button>
+    <br>
+    <md-button class="md-warn">Careful</md-button>
+    <md-button class="md-warn md-hue-1">Careful</md-button>
+    <md-button class="md-warn md-hue-2">Careful</md-button>
+    <md-button class="md-warn md-hue-3">Careful</md-button>
+    <md-button class="md-warn md-raised">Careful</md-button>
+    <md-button class="md-warn md-hue-1 md-raised">Careful</md-button>
+    <md-button class="md-warn md-hue-2 md-raised">Careful</md-button>
+    <md-button class="md-warn md-hue-3 md-raised">Careful</md-button>
+
+
+  </div>
   
   <!-- Angular Material requires Angular.js Libraries -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
 
   <!-- Angular Material Library -->
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+  <!-- Quoting Tool Angular App -->
+  <script src="scripts/app.js" type="text/javascript"></script>
+  <script src="scripts/controllers/projectInfo.js" type="text/javascript"></script>
+  <script src="scripts/services/data.js" type="text/javascript"></script>
     
 </body>
 </html>
