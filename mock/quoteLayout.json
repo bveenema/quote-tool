@@ -1,0 +1,7 @@
+[
+	{"name": "Project Info", "template": "project-info.html"},
+	{"name": "Load Builder", "template": "load-builder.html"},
+	{"name": "Sales Adjustments", "template": "auto-calcs.html"},
+	{"name": "Contact Sheet", "template": "contact-sheet.html"}
+	
+]

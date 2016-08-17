@@ -10,4 +10,8 @@ angular.module('quotingToolApp')
   	$http.get('api/trucks')
   	.then(callback);
   }
+  this.getQuoteLayout = function(callback){
+  	$http.get('api/quotelayout')
+  	.then(callback);
+  }
 });
