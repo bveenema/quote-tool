@@ -35,7 +35,7 @@
 }
 
 .main-body md-card h2 {
-	flex-basis: 200px;
+	/*flex-basis: 200px;*/
 }
 
 .main-body md-card md-card-content {
@@ -62,4 +62,16 @@ md-content.form-group {
 md-content.form-group md-input-container {
 	margin-top: 0;
 	margin-bottom: 4px;
+}
+
+/*************************************
+/Load Builder
+/************************************/
+
+#load-builder h2, #load-builder h3 {
+	display: inline-block;
+}
+
+#load-builder h3 {
+	
 }
