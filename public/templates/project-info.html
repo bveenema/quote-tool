@@ -1,45 +1,147 @@
 <div ng-controller="projectInfoCtrl" layout="column" class="md-inline-form">
 
-  <form name="colorForm">
+  <form name="projectInfoForm">
 
-  	<div id="project-section" class="form-section">
-  		<h2>Project</h2>
-  		<md-input-container class="md-block" flex-gt-sm="">
-		    <label>Project Name:</label>
-		    <input ng-model="project.name">
-		</md-input-container>
-		<md-input-container class="md-block" flex-gt-sm="">
-		    <label>Address:</label>
-		    <input ng-model="project.address">
-		</md-input-container>
-  	</div>
-  	<div layout="row">
-	  	<div id="customer-section" class="form-section">
-	  		<h2>Customer</h2>
-	  	</div>
-	  	<div id="internal-section" class="form-section">
-	  		<h2>Internal</h2>
-	  	</div>
-	</div>
+  <!-- Project Details -->
 
-  <md-input-container>
-    <label>Favorite Color</label>
-    <input name="favoriteColor" ng-model="favoriteColor" required>
-    <div ng-messages="colorForm.favoriteColor.$error">
-      <div ng-message="required">This is required!</div>
+  <md-content class="form-group" md-theme="form-dark" layout-gt-xs="column" layout-padding="">
+    <div layout-xs="column" layout-gt-xs="row">
+      <md-input-container flex="100">
+        <label>Project Name</label>
+        <input name="project_name" ng-model="project.name" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.project_name.$error">
+          <div ng-message="required">Every project needs a name...</div>
+        </div>
+      </md-input-container>
     </div>
-  </md-input-container>
+    <div layout-xs="column" layout-gt-xs="row">
+      <md-input-container flex-xs="100" flex-gt-xs="50">
+        <label>Address</label>
+        <input name="project_address" ng-model="project.address" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.project_address.$error">
+          <div ng-message="required">We need to know where the wall is going</div>
+        </div>
+      </md-input-container>
+      <md-input-container flex-xs="100" flex-gt-xs="40">
+        <label>City</label>
+        <input name="project_city" ng-model="project.city" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.project_address.$error">
+          <div ng-message="required">We need to know where the wall is going</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs="10">
+        <label>State</label>
+        <md-select name="project_state" ng-model="project.state" required md-no-asterisk>
+          <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+            {{state.abbrev}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+  </md-content>
 
+  <!-- /Project Details -->
+  <!-- Customer Details -->
 
-  <md-input-container class="md-block" flex-gt-sm="">
-    <label>Customer Name:</label>
-    <input ng-model="project.customerName">
-  </md-input-container>
+  <md-content class="form-group" md-theme="form-light" layout-gt-xs="column" layout-padding="">
+    <div layout-xs="column" layout-gt-xs="row">
+      <md-input-container flex="100">
+        <label>Customer Name</label>
+        <input name="customer_name" type="text" ng-model="customer.name" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.customer_name.$error">
+          <div ng-message="required">Who do we bill?</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div layout-xs="column" layout-gt-xs="row">
+      <md-input-container flex-xs="100" flex-gt-xs="50">
+        <label>Address</label>
+        <input name="customer_address" type="text" ng-model="customer.address" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.customer_address.$error">
+          <div ng-message="required">Where are these guys?</div>
+        </div>
+      </md-input-container>
+      <md-input-container flex-xs="100" flex-gt-xs="40">
+        <label>City</label>
+        <input name="customer_city" type="text" ng-model="customer.city" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.customer_city.$error">
+          <div ng-message="required">Where are these guys?</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs="10">
+        <label>State</label>
+        <md-select name="customer_state" ng-model="customer.state" required md-no-asterisk>
+          <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+            {{state.abbrev}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div layout-xs="column" layout-gt-xs="row">
+      <md-input-container flex-xs="100" flex-gt-xs="33">
+        <label>Contact Name</label>
+        <input name="contact_name" type="text" ng-model="contact.name" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.contact_name.$error">
+          <div ng-message="required">Who do we call when SHTF?</div>
+        </div>
+      </md-input-container>
+      <md-input-container flex-xs="100" flex-gt-xs="33">
+        <label>Phone</label>
+        <input name="contact_phone" type="tel" ng-pattern="/^(\+?\d{1,2}\s?)?(\(?[0-9]{3}\)?(\s|-)?)?(\d{3}(\s|-)?\d{4})$/" ng-model="contact.phone" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.contact_phone.$error">
+          <div ng-message="required">We need some digits...</div>
+          <div ng-message="pattern">I'm not sure we can dial that...</div>
+        </div>
+      </md-input-container>
+      <md-input-container flex-xs="100" flex-gt-xs="33">
+        <label>Email</label>
+        <input name="contact_email" type="email" ng-model="contact.email">
+      </md-input-container>
+      </div>
+  </md-content>
+
+  <!-- /Customer Details -->
+  <!-- Internal Details -->
+  <md-content class="form-group" md-theme="form-dark" layout-gt-xs="column" layout-padding="">
+    <div layout-xs="column" layout-gt-xs="row">
+      <md-input-container flex="100" flex-gt-xs="70">
+        <label>Contractor</label>
+        <input name="internal_contractor" type="text" ng-model="internal.contractor" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.internal_contractor.$error">
+          <div ng-message="required">Need to know who's doing the actual work...</div>
+        </div>
+      </md-input-container>
+      <md-input-container flex="100" flex-gt-xs="30">
+        <label>Take-off Number</label>
+        <input name="internal_takeoff_number" type="number" ng-model="internal.takeffNumber" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.internal_takeoff_number.$error">
+          <div ng-message="required">Do you want us to lose the order?</div>
+          <div ng-message="number">That's not a number...</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div layout-xs="column" layout-gt-xs="row">
+      <md-input-container flex="100" flex-gt-xs="50">
+        <label>Est. SqFt</label>
+        <input name="internal_est_sqft" type="number" min="10" max="50000" step="100" ng-model="internal.estSqFt" required md-no-asterisk>
+        <div ng-messages="projectInfoForm.internal_est_sqft.$error">
+          <div ng-message="required">Size really does matter...</div>
+          <div ng-message="number">That's not a number...</div>
+          <div ng-message="min">We don't even have a brick that small...</div>
+          <div ng-message="max">That's a bit much, don't you think...</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs="50">
+        <label>Load Type</label>
+        <md-select name="internal_load_type" ng-model="internal.loadType" required md-no-asterisk>
+          <md-option ng-repeat="truck in trucks" value="{{truck.type}}">
+            {{truck.type}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+  </md-content>
+  <!-- /Internal Details -->
 </form>
 
 </div>
-
-<!--
-Copyright 2016 Google Inc. All Rights Reserved. 
-Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
--->
