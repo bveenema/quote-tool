@@ -6,7 +6,7 @@ angular.module('quotingToolApp')
 
   $scope.totalWeight = 0;
 
-  $scope.walls = [1,2,3];
+  $scope.walls = [1];
   
   
   dataService.getBlocks(function(response) { 

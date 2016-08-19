@@ -68,10 +68,52 @@ md-content.form-group md-input-container {
 /Load Builder
 /************************************/
 
-#load-builder h2, #load-builder h3 {
-	display: inline-block;
+
+#load-builder md-list-item {
+	min-height: 0;
 }
 
-#load-builder h3 {
-	
+#load-builder .md-list-item-text h3 {
+	margin: 0;
+}
+
+#load-builder .md-list-item-text {
+	margin: 0;
+	align-items: center;
+}
+
+#load-builder .md-list-item-text {
+	flex-wrap: wrap;
+}
+
+#load-builder .wall-number,
+#load-builder md-input-container .md-input {
+	text-align: center;
+	height: 20px;
+}
+
+#load-builder .md-list-item-text md-input-container {
+	margin: 0;
+}
+
+#load-builder md-input-container .md-errors-spacer {
+    height: 0;
+    min-height: 5px;
+}
+
+@media (max-width: 599px) {
+	#load-builder .md-list-item-text h3 {
+		text-align: center;
+		margin-top: 5px;
+	}
+
+	#load-builder .wall-group {
+		justify-content: center;
+		margin-bottom: 10px;
+	}
+
+	#load-builder .wall-group-input {
+		justify-content: center;
+		margin-bottom: 0;
+	}
 }
