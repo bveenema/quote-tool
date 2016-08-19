@@ -24,7 +24,7 @@
 		          <h3 class="md-subhead" flex="30" flex-xs="100" flex-sm="40">{{block.name}}</h3>
 		          <div class="wall-group-input" flex flex-xs="100" layout="row">
 			          <md-input-container flex-gt-sm="5" flex="10" ng-repeat="wall in walls">
-			          	<input type="text"  ng-model="count" ng-keyup="sumWeights(block, count, $index)">
+			          	<input type="text"  ng-model="count" ng-keyup="sumWeights(block, count, $index)" aria-label="'Number of ' + block.name + ' blocks in wall ' + $index">
 			          </md-input-container>
 			          <div flex-gt-sm="5" flex="10"></div>
 			         </div>

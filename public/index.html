@@ -28,7 +28,7 @@
           <div class="md-toolbar-tools">
             <h2>{{section.name}}</h2>
             <h6></h6>
-            <md-button ng-switch="hideContent">
+            <md-button ng-switch="hideContent" aria-label="'Show/Hide ' + section.name">
               <md-icon md-font-library="material-icons" ng-switch-when="true">expand_more</md-icon>
               <md-icon md-font-library="material-icons" ng-switch-when="false">expand_less</md-icon>
             </md-button>
@@ -91,6 +91,7 @@
   <script src="scripts/controllers/main.js" type="text/javascript"></script>
   <script src="scripts/controllers/projectinfo.js" type="text/javascript"></script>
   <script src="scripts/controllers/loadbuilder.js" type="text/javascript"></script>
+  <script src="scripts/controllers/autocalcs.js" type="text/javascript"></script>
   <script src="scripts/services/data.js" type="text/javascript"></script>
     
 </body>
