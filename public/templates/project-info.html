@@ -6,13 +6,15 @@
 
   <md-content class="form-group" md-theme="form-dark" layout-gt-xs="column" layout-padding="">
     <div layout-xs="column" layout-gt-xs="row">
-      <md-input-container flex="100">
+      <md-input-container flex="80">
         <label>Project Name</label>
         <input name="project_name" ng-model="project.name" required md-no-asterisk>
         <div ng-messages="projectInfoForm.project_name.$error">
           <div ng-message="required">Every project needs a name...</div>
         </div>
       </md-input-container>
+      <md-datepicker flex="20" ng-model="user.submissionDate" md-placeholder="Enter Date">
+        </md-datepicker>
     </div>
     <div layout-xs="column" layout-gt-xs="row">
       <md-input-container flex-xs="100" flex-gt-xs="50">

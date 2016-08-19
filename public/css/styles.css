@@ -40,7 +40,8 @@
 
 .main-body md-card md-card-content {
 	transition: all .5s linear;
-	max-height: 1500px;
+	max-height: 800px;
+	overflow: hidden;
 	opacity: 1;
 	padding: 0;
 }
@@ -63,6 +64,33 @@ md-content.form-group md-input-container {
 	margin-top: 0;
 	margin-bottom: 4px;
 }
+
+.md-inline-form md-datepicker {
+	margin-top: -3px;
+}
+
+
+.md-validateTheme-theme .md-datepicker-input {
+	color: #fff;
+}
+
+.md-datepicker-open .md-datepicker-input {
+	color: #AfAfaf;
+}
+
+.md-form-dark-theme .md-datepicker-input::-webkit-input-placeholder {
+   color: #AfAfaf;
+}
+.md-form-dark-theme .md-datepicker-input:-moz-placeholder { /* Firefox 18- */
+   color: #AfAfaf;
+}
+.md-form-dark-theme .md-datepicker-input::-moz-placeholder {  /* Firefox 19+ */
+   color: #AfAfaf;
+}
+.md-form-dark-theme .md-datepicker-input:-ms-input-placeholder {  
+   color: #AfAfaf;
+}
+
 
 /*************************************
 /Load Builder
