@@ -41,7 +41,7 @@
 .main-body md-card md-card-content {
 	transition: all .5s linear;
 	max-height: 800px;
-	overflow: hidden;
+	overflow: auto;
 	opacity: 1;
 	padding: 0;
 }
@@ -66,9 +66,37 @@ md-content.form-group md-input-container {
 }
 
 .md-inline-form md-datepicker {
-	margin-top: -3px;
+	display: flex;
+	margin-top: 8px;
+	margin-right: 0;
+	padding-right: 5px;
+	justify-content: flex-end;
+	align-items: flex-start;
 }
 
+.md-inline-form md-datepicker .md-button.md-icon-button{
+	margin-top: -2px;
+	margin-right: 0;
+	padding-top: 0;
+	width: 30px;
+	align-items: flex-start;
+}
+
+.add-cell {
+	text-align: center;
+	margin-top: 16px;
+}
+
+@media (max-width: 599px) {
+	.md-inline-form md-datepicker {
+		justify-content: flex-end;
+	}
+	.add-cell {
+		text-align: left;
+		margin-top: -10px;
+		margin-bottom: 10px;
+	}
+}
 
 .md-validateTheme-theme .md-datepicker-input {
 	color: #fff;

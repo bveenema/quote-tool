@@ -1,39 +1,45 @@
 <div ng-controller="projectInfoCtrl" layout="column" class="md-inline-form">
 
+<md-content class="project-info-wrapper">
   <form name="projectInfoForm">
+
+  Touched and Invalid: {{formInfo.hasTouchedAndInvalid}}<br>
+  Require and Valid: {{formInfo.allRequiredAreValid}}<br>
+  {{$index}}
 
   <!-- Project Details -->
 
   <md-content class="form-group" md-theme="form-dark" layout-gt-xs="column" layout-padding="">
     <div layout-xs="column" layout-gt-xs="row">
-      <md-input-container flex="80">
+      <md-input-container flex-xs="100" flex>
         <label>Project Name</label>
-        <input name="project_name" ng-model="project.name" required md-no-asterisk>
+        <input name="project_name" ng-model="project.name" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.project_name.$error">
           <div ng-message="required">Every project needs a name...</div>
         </div>
       </md-input-container>
-      <md-datepicker flex="20" ng-model="user.submissionDate" md-placeholder="Enter Date">
-        </md-datepicker>
+      <md-datepicker flex-xs="100" flex-sm="25" flex="20" name="project_date" ng-model="project.date" md-placeholder="Enter Date" required ng-blur="checkAndSubmit(projectInfoForm,$index)">
+      </md-datepicker>
+     
     </div>
     <div layout-xs="column" layout-gt-xs="row">
       <md-input-container flex-xs="100" flex-gt-xs="50">
         <label>Address</label>
-        <input name="project_address" ng-model="project.address" required md-no-asterisk>
+        <input name="project_address" ng-model="project.address" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.project_address.$error">
           <div ng-message="required">We need to know where the wall is going</div>
         </div>
       </md-input-container>
       <md-input-container flex-xs="100" flex-gt-xs="40">
         <label>City</label>
-        <input name="project_city" ng-model="project.city" required md-no-asterisk>
+        <input name="project_city" ng-model="project.city" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.project_address.$error">
           <div ng-message="required">We need to know where the wall is going</div>
         </div>
       </md-input-container>
       <md-input-container class="md-block" flex-gt-xs="10">
         <label>State</label>
-        <md-select name="project_state" ng-model="project.state" required md-no-asterisk>
+        <md-select name="project_state" ng-model="project.state" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)" ng-blur="checkAndSubmit(projectInfoForm,$index)">
           <md-option ng-repeat="state in states" value="{{state.abbrev}}">
             {{state.abbrev}}
           </md-option>
@@ -49,7 +55,7 @@
     <div layout-xs="column" layout-gt-xs="row">
       <md-input-container flex="100">
         <label>Customer Name</label>
-        <input name="customer_name" type="text" ng-model="customer.name" required md-no-asterisk>
+        <input name="customer_name" type="text" ng-model="customer.name" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.customer_name.$error">
           <div ng-message="required">Who do we bill?</div>
         </div>
@@ -58,21 +64,21 @@
     <div layout-xs="column" layout-gt-xs="row">
       <md-input-container flex-xs="100" flex-gt-xs="50">
         <label>Address</label>
-        <input name="customer_address" type="text" ng-model="customer.address" required md-no-asterisk>
+        <input name="customer_address" type="text" ng-model="customer.address" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.customer_address.$error">
           <div ng-message="required">Where are these guys?</div>
         </div>
       </md-input-container>
       <md-input-container flex-xs="100" flex-gt-xs="40">
         <label>City</label>
-        <input name="customer_city" type="text" ng-model="customer.city" required md-no-asterisk>
+        <input name="customer_city" type="text" ng-model="customer.city" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.customer_city.$error">
           <div ng-message="required">Where are these guys?</div>
         </div>
       </md-input-container>
       <md-input-container class="md-block" flex-gt-xs="10">
         <label>State</label>
-        <md-select name="customer_state" ng-model="customer.state" required md-no-asterisk>
+        <md-select name="customer_state" ng-model="customer.state" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
           <md-option ng-repeat="state in states" value="{{state.abbrev}}">
             {{state.abbrev}}
           </md-option>
@@ -82,24 +88,68 @@
     <div layout-xs="column" layout-gt-xs="row">
       <md-input-container flex-xs="100" flex-gt-xs="33">
         <label>Contact Name</label>
-        <input name="contact_name" type="text" ng-model="contact.name" required md-no-asterisk>
+        <input name="contact_name" type="text" ng-model="contact.name" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.contact_name.$error">
           <div ng-message="required">Who do we call when SHTF?</div>
         </div>
       </md-input-container>
+      <div layout-xs="column" layout-gt-xs="row" flex-offset-xs="10" flex-xs="100" flex-gt-xs="66">
+        <md-input-container flex-xs="100" ng-class="{'flex-gt-xs-30': showPrimaryCell, 'flex-gt-xs-35': !showPrimaryCell}">
+          <label>Phone</label>
+          <input name="contact_phone" type="tel" ng-pattern="/^(\+?\d{1,2}\s?)?(\(?[0-9]{3}\)?(\s|-)?)?(\d{3}(\s|-)?\d{4})$/" ng-model="contact.phone" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
+          <div ng-messages="projectInfoForm.contact_phone.$error">
+            <div ng-message="required">We need some digits...</div>
+            <div ng-message="pattern">I'm not sure we can dial that...</div>
+          </div>
+        </md-input-container>
+        <a href class="add-cell" flex-xs="100" flex="10" ng-hide="showPrimaryCell" ng-click="showPrimaryCell=true">+ cell</a>
+        <md-input-container ng-show="showPrimaryCell" flex-xs="100" flex-gt-xs="30">
+          <label>Cell</label>
+          <input name="contact_cell" type="tel" ng-pattern="/^(\+?\d{1,2}\s?)?(\(?[0-9]{3}\)?(\s|-)?)?(\d{3}(\s|-)?\d{4})$/" ng-model="contact.cell" md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
+          <div ng-messages="projectInfoForm.contact_cell.$error">
+            <div ng-message="required">We need some digits...</div>
+            <div ng-message="pattern">I'm not sure we can dial that...</div>
+          </div>
+        </md-input-container>
+        <md-input-container flex-xs="100" flex>
+          <label>Email</label>
+          <input name="contact_email" type="email" ng-model="contact.email" ng-blur="checkAndSubmit(projectInfoForm,$index)">
+        </md-input-container>
+      </div>
+    </div>
+    <a href flex="95" flex-offset="5" ng-hide="showAltContact" ng-click="showAltContact=true">+ Alt. Contact</a>
+    <div layout-xs="column" layout-gt-xs="row" ng-show="showAltContact">
       <md-input-container flex-xs="100" flex-gt-xs="33">
-        <label>Phone</label>
-        <input name="contact_phone" type="tel" ng-pattern="/^(\+?\d{1,2}\s?)?(\(?[0-9]{3}\)?(\s|-)?)?(\d{3}(\s|-)?\d{4})$/" ng-model="contact.phone" required md-no-asterisk>
-        <div ng-messages="projectInfoForm.contact_phone.$error">
-          <div ng-message="required">We need some digits...</div>
-          <div ng-message="pattern">I'm not sure we can dial that...</div>
+        <label>Alt Contact Name</label>
+        <input name="alt_contact_name" type="text" ng-model="altContact.name" md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
+        <div ng-messages="projectInfoForm.alt_contact_name.$error">
+          <div ng-message="required">Who else do we call when SHTF?</div>
         </div>
       </md-input-container>
-      <md-input-container flex-xs="100" flex-gt-xs="33">
-        <label>Email</label>
-        <input name="contact_email" type="email" ng-model="contact.email">
-      </md-input-container>
+      <div layout-xs="column" layout-gt-xs="row" flex-offset-xs="10" flex-xs="100" flex-gt-xs="66">
+        <md-input-container flex-xs="100" ng-class="{'flex-gt-xs-30': showPrimaryCell, 'flex-gt-xs-35': !showPrimaryCell}">
+          <label>Phone</label>
+          <input name="alt_contact_phone" type="tel" ng-pattern="/^(\+?\d{1,2}\s?)?(\(?[0-9]{3}\)?(\s|-)?)?(\d{3}(\s|-)?\d{4})$/" ng-model="altContact.phone" md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
+          <div ng-messages="projectInfoForm.alt_contact_phone.$error">
+            <div ng-message="required">We need some digits...</div>
+            <div ng-message="pattern">I'm not sure we can dial that...</div>
+          </div>
+        </md-input-container>
+        <a href class="add-cell" flex-xs="100" flex="10" ng-hide="showAlternateCell" ng-click="showAlternateCell=true">+ cell</a>
+        <md-input-container ng-show="showAlternateCell" flex-xs="100" flex-gt-xs="30">
+          <label>Cell</label>
+          <input name="alt_contact_cell" type="tel" ng-pattern="/^(\+?\d{1,2}\s?)?(\(?[0-9]{3}\)?(\s|-)?)?(\d{3}(\s|-)?\d{4})$/" ng-model="altContact.cell" md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
+          <div ng-messages="projectInfoForm.alt_contact_cell.$error">
+            <div ng-message="required">We need some digits...</div>
+            <div ng-message="pattern">I'm not sure we can dial that...</div>
+          </div>
+        </md-input-container>
+        <md-input-container flex-xs="100" flex>
+          <label>Email</label>
+          <input name="alt_contact_email" type="email" ng-model="altContact.email" ng-blur="checkAndSubmit(projectInfoForm,$index)">
+        </md-input-container>
       </div>
+    </div>
   </md-content>
 
   <!-- /Customer Details -->
@@ -108,14 +158,14 @@
     <div layout-xs="column" layout-gt-xs="row">
       <md-input-container flex="100" flex-gt-xs="70">
         <label>Contractor</label>
-        <input name="internal_contractor" type="text" ng-model="internal.contractor" required md-no-asterisk>
+        <input name="internal_contractor" type="text" ng-model="internal.contractor" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.internal_contractor.$error">
           <div ng-message="required">Need to know who's doing the actual work...</div>
         </div>
       </md-input-container>
       <md-input-container flex="100" flex-gt-xs="30">
         <label>Take-off Number</label>
-        <input name="internal_takeoff_number" type="number" ng-model="internal.takeffNumber" required md-no-asterisk>
+        <input name="internal_takeoff_number" type="number" ng-model="internal.takeffNumber" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.internal_takeoff_number.$error">
           <div ng-message="required">Do you want us to lose the order?</div>
           <div ng-message="number">That's not a number...</div>
@@ -125,7 +175,7 @@
     <div layout-xs="column" layout-gt-xs="row">
       <md-input-container flex="100" flex-gt-xs="50">
         <label>Est. SqFt</label>
-        <input name="internal_est_sqft" type="number" min="10" max="50000" step="100" ng-model="internal.estSqFt" required md-no-asterisk>
+        <input name="internal_est_sqft" type="number" min="10" max="50000" step="100" ng-model="internal.estSqFt" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.internal_est_sqft.$error">
           <div ng-message="required">Size really does matter...</div>
           <div ng-message="number">That's not a number...</div>
@@ -135,7 +185,7 @@
       </md-input-container>
       <md-input-container class="md-block" flex-gt-xs="50">
         <label>Load Type</label>
-        <md-select name="internal_load_type" ng-model="internal.loadType" required md-no-asterisk>
+        <md-select name="internal_load_type" ng-model="internal.loadType" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
           <md-option ng-repeat="truck in trucks" value="{{truck.type}}">
             {{truck.type}}
           </md-option>
@@ -146,4 +196,5 @@
   <!-- /Internal Details -->
 </form>
 
+</md-content>
 </div>

@@ -2,6 +2,7 @@
 
 <html lang="en" >
 <head>
+  <title>Quote Tools - VDW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Fonts -->
@@ -24,10 +25,10 @@
 
     <md-card ng-init="hideContent = false" ng-repeat="section in quoteLayout">
       <md-card-header ng-click="hideContent = !hideContent">
-        <md-toolbar class="md-primary md-hue-3">
+        <md-toolbar ng-class="{'md-primary md-hue-3': section.valid==='', 'md-accent md-hue-2': section.valid==='Good!', 'md-warn md-hue-1': section.valid==='Error!'}">
           <div class="md-toolbar-tools">
             <h2>{{section.name}}</h2>
-            <h6></h6>
+            <h6>{{section.valid}}</h6>
             <md-button ng-switch="hideContent" aria-label="'Show/Hide ' + section.name">
               <md-icon md-font-library="material-icons" ng-switch-when="true">expand_more</md-icon>
               <md-icon md-font-library="material-icons" ng-switch-when="false">expand_less</md-icon>
@@ -38,43 +39,7 @@
      <md-card-content ng-hide="hideContent">
       <ng-include src="'templates/' + section.template"></ng-include>
      </md-card-content>
-    </md-card>
-
-    <md-card>
-      <md-card-header>
-        <md-toolbar class="md-accent md-hue-2">
-          <div class="md-toolbar-tools">
-            <h2>Project Info</h2>
-            <h6>Good!</h6>
-            <md-button>
-              Open/Collapse
-            </md-button>
-          </div>
-        </md-toolbar>
-      </md-card-header>
-     <md-card-content>
-       <p>Card content</p>
-     </md-card-content>
-    </md-card>
-
-    <md-card>
-      <md-card-header>
-        <md-toolbar class="md-warn md-hue-1">
-          <div class="md-toolbar-tools">
-            <h2>Project Info</h2>
-            <h6>Error</h6>
-            <md-button>
-              Open/Collapse
-            </md-button>
-          </div>
-        </md-toolbar>
-      </md-card-header>
-     <md-card-content>
-       <p>Card content</p>
-     </md-card-content>
-    </md-card>
-
-    
+    </md-card>    
   </div>
   
   <!-- Angular Material requires Angular.js Libraries -->
