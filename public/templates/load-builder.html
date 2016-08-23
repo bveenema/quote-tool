@@ -26,10 +26,6 @@
 				          <div class="wall-group-input" flex flex-xs="100" layout="row">
 					          <md-input-container flex-gt-sm="5" flex="10" ng-repeat="wall in walls">
 					          	<input type="number" min="0"  name="wall_{{wall}}_{{block.name}}" ng-model="count" ng-keyup="sumWeights(block, count, $index)" ng-blur="checkAndSubmit(loadBuilderForm,$parent.$parent.$parent.$index)" aria-label="'Number of ' + block.name + ' blocks in wall ' + $index">
-					          	<div ng-messages="projectInfoForm.internal_est_sqft.$error">
-							          <div ng-message="number">Nan</div>
-							          <div ng-message="min">???</div>
-							        </div>
 					          </md-input-container>
 					          <div flex-gt-sm="5" flex="10"></div>
 					         </div>

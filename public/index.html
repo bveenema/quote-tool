@@ -23,12 +23,11 @@
 
   <div layout="row" class="main-body" md-theme="validateTheme" ng-controller="mainCtrl">
 
-    <md-card ng-init="hideContent = false" ng-repeat="section in quoteLayout">
+    <md-card ng-init="hideContent = true" ng-repeat="section in quoteLayout">
       <md-card-header ng-click="hideContent = !hideContent">
         <md-toolbar ng-class="{'md-primary md-hue-3': section.valid==='', 'md-accent md-hue-2': section.valid==='Good!', 'md-warn md-hue-1': section.valid==='Error!'}">
           <div class="md-toolbar-tools">
             <h2>{{section.name}}</h2>
-            <h6>{{section.valid}}</h6>
             <md-button ng-switch="hideContent" aria-label="'Show/Hide ' + section.name">
               <md-icon md-font-library="material-icons" ng-switch-when="true">expand_more</md-icon>
               <md-icon md-font-library="material-icons" ng-switch-when="false">expand_less</md-icon>

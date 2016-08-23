@@ -39,7 +39,8 @@
 }
 
 .main-body md-card md-card-content {
-	transition: all .5s linear;
+	/*transition: all .5s linear;*/
+	transition: max-height .5s linear, opacity .5s linear .1s;
 	max-height: 800px;
 	overflow: auto;
 	opacity: 1;
@@ -171,5 +172,44 @@ md-content.form-group md-input-container {
 	#load-builder .wall-group-input {
 		justify-content: center;
 		margin-bottom: 0;
+	}
+}
+
+
+/*************************************
+/Sales Adjustments
+/************************************/
+
+#sales-adjustments md-input-container.md-validateTheme-theme .md-input[disabled], 
+#sales-adjustments md-input-container.md-validateTheme-theme .md-input [disabled],
+.hint[disabled] {
+	text-decoration: line-through;
+	color: rgba(0,0,0,0.38);
+}
+
+.hint {
+    /* Position the hint */
+    position: absolute;
+    left: 35px;
+    right: auto;
+    bottom: 12px;
+    /* Copy styles from ng-messages */
+    font-size: 12px;
+    line-height: 14px;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    /* Set our own color */
+    color: grey; 
+}
+
+#sales-adjustments md-checkbox:last-of-type {
+    margin-left: 30px;
+}
+
+@media (max-width: 599px) {
+	#sales-adjustments md-checkbox:last-of-type {
+    	margin-left: 10px;	
+	}
+	#sales-adjustments md-checkbox:last-of-type span {
+		display: none;
 	}
 }

@@ -2,9 +2,23 @@
 
 angular.module('quotingToolApp')
 .controller('autoCalcsCtrl', function($scope, $timeout, dataService) {
-   $scope.engineeringFee = 1000;
-   $scope.deliveryTime = 3;
-   $scope.deliveryCharge = 420;
+  $scope.engineeringFee = 	{
+   														override: 1000,
+						   								calculated: 1000,
+						   								waive: false
+						   							};
+   
+	$scope.deliveryTime = 		{
+						   								override: 3,
+						   								calculated: 3,
+							   							waive: false
+						   							};
+   
+  $scope.deliveryCharge = 	{
+						   								override: 420,
+						   								calculated: 420,
+						   								waive: false
+						   							};
   
   // dataService.getTrucks(function(response) { 
   //     console.log(response.data);  
