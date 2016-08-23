@@ -38,13 +38,6 @@ angular.module('quotingToolApp')
 
 // Check the form validation, update the toolbar and submit if all required inputs are valid
   $scope.checkAndSubmit = function(form,index){
-    // $scope.formInfo.hasTouchedAndInvalid = $scope.checkTouchedAndInvalid(form);
-    
-    // $scope.formInfo.allRequiredAreValid = checkRequiredAreValid(form);
-
-
-    console.log($scope.quoteLayout[index].valid);
-
     if(checkTouchedAndInvalid(form)){
       $scope.quoteLayout[index].valid = "Error!";
     }else if(checkRequiredAreValid(form)){
@@ -52,6 +45,8 @@ angular.module('quotingToolApp')
     }else {
       $scope.quoteLayout[index].valid = '';
     }
+
+    console.log($scope.quoteLayout[index].valid);
   };
   
   dataService.getQuoteLayout(function(response) {

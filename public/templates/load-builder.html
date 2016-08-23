@@ -3,34 +3,42 @@
 
 
 <md-content>
-	<div ng-repeat="type in blocks" layout="column">
-	<section>
-    <md-subheader class="md-primary">{{type.series}}</md-subheader>
-	    <md-list>
-	    	<md-list-item>
-		    	<div class="md-list-item-text" layout="row" flex="100">
-		    		<h3 class="md-body-1" flex="30" flex-sm="40" hide-xs>Description:</h3>
-		    		<div class="wall-group" flex flex-xs="100" layout="row">
-			    		<div class="wall-number" flex-gt-sm="5" flex="10" ng-repeat="wall in walls">
-			    			{{walls[$index]}}
-			    		</div>
-		    			<a flex-gt-sm="5" flex="10" href="" ng-click="addWall()">+</a>
-		    		</div>
-		    	</div>
-		    	<md-divider></md-divider>
-	    	</md-list-item>
-	      	<md-list-item flex="100" class="md-1-line" ng-repeat="block in type.blocks">
-		        <div class="md-list-item-text" layout="row" flex="100" flex-wrap="wrap">
-		          <h3 class="md-subhead" flex="30" flex-xs="100" flex-sm="40">{{block.name}}</h3>
-		          <div class="wall-group-input" flex flex-xs="100" layout="row">
-			          <md-input-container flex-gt-sm="5" flex="10" ng-repeat="wall in walls">
-			          	<input type="text"  ng-model="count" ng-keyup="sumWeights(block, count, $index)" aria-label="'Number of ' + block.name + ' blocks in wall ' + $index">
-			          </md-input-container>
-			          <div flex-gt-sm="5" flex="10"></div>
-			         </div>
-		        </div>
-		        <md-divider ng-if="!$last"></md-divider>
-		      </md-list-item>
-	    </md-list>
-	  </section>
+	<form name="loadBuilderForm">
+		<div ng-repeat="type in blocks" layout="column">
+			<section>
+		    <md-subheader class="md-primary">{{type.series}}</md-subheader>
+			    <md-list>
+			    	<md-list-item>
+				    	<div class="md-list-item-text" layout="row" flex="100">
+				    		<h3 class="md-body-1" flex="30" flex-sm="40" hide-xs>Description:</h3>
+				    		<div class="wall-group" flex flex-xs="100" layout="row">
+					    		<div class="wall-number" flex-gt-sm="5" flex="10" ng-repeat="wall in walls">
+					    			{{walls[$index]}}
+					    		</div>
+				    			<a flex-gt-sm="5" flex="10" href="" ng-click="addWall()">+</a>
+				    		</div>
+				    	</div>
+				    	<md-divider></md-divider>
+			    	</md-list-item>
+			      	<md-list-item flex="100" class="md-1-line" ng-repeat="block in type.blocks">
+				        <div class="md-list-item-text" layout="row" flex="100" flex-wrap="wrap">
+				          <h3 class="md-subhead" flex="30" flex-xs="100" flex-sm="40">{{block.name}}</h3>
+				          <div class="wall-group-input" flex flex-xs="100" layout="row">
+					          <md-input-container flex-gt-sm="5" flex="10" ng-repeat="wall in walls">
+					          	<input type="number" min="0"  name="wall_{{wall}}_{{block.name}}" ng-model="count" ng-keyup="sumWeights(block, count, $index)" ng-blur="checkAndSubmit(loadBuilderForm,$parent.$parent.$parent.$index)" aria-label="'Number of ' + block.name + ' blocks in wall ' + $index">
+					          	<div ng-messages="projectInfoForm.internal_est_sqft.$error">
+							          <div ng-message="number">Nan</div>
+							          <div ng-message="min">???</div>
+							        </div>
+					          </md-input-container>
+					          <div flex-gt-sm="5" flex="10"></div>
+					         </div>
+				        </div>
+				        <md-divider ng-if="!$last"></md-divider>
+				      </md-list-item>
+			    	</md-list>
+			</section>
+		 </div>
+	</form>
 </md-content>
+
