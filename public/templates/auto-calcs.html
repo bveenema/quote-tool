@@ -6,8 +6,8 @@
 		    <md-input-container class="md-icon-float md-block" flex-xs="90" flex-gt-xs="50">
 		      <label>Engineering Fee</label>
 		      <md-icon md-font-library="material-icons">attach_money</md-icon>
-		      <input name="engineering_fee" ng-model="engineeringFee.override" type="number" ng-blur="checkAndSubmit(salesAdjustmentsForm,$index)" ng-disabled="engineeringFee.waive">
-		      <div class="hint" ng-if="engineeringFee.override !== engineeringFee.calculated" ng-disabled="engineeringFee.waive">Calculated: {{engineeringFee.calculated}}</div>
+		      <input name="engineering_fee" ng-model="engineeringFee.override" type="number" ng-blur="checkAndSubmit(salesAdjustmentsForm,$index)" ng-change="engineeringFee.userUpdated = true" ng-disabled="engineeringFee.waive">
+		      <div class="hint" ng-if="engineeringFee.override !== engineeringFee.calculated" ng-disabled="engineeringFee.waive">Calculated: {{engineeringFee.calculated}} <a href ng-click="engineeringFee.override = engineeringFee.calculated">use</a></div>
 		    </md-input-container>
 		    <div flex-xs="10" flex-gt-xs>
           <md-checkbox ng-model="engineeringFee.waive" aria-label="Waive Engineering Fee" class="md-warn md-hue-2">
@@ -21,7 +21,7 @@
 		      <label>Delivery Time</label>
 		     	<md-icon md-font-library="material-icons">schedule</md-icon>
 		      <input name="delivery_time" ng-model="deliveryTime.override" type="number" step="0.01" ng-blur="checkAndSubmit(salesAdjustmentsForm,$index)" ng-disabled="deliveryTime.waive">
-		      <div class="hint" ng-disabled="deliveryTime.waive">hrs<span ng-if="deliveryTime.override !== deliveryTime.calculated"> (Calculated: {{deliveryTime.calculated}})</span></div>
+		      <div class="hint" ng-disabled="deliveryTime.waive">hrs<span ng-if="deliveryTime.override !== deliveryTime.calculated"> (Calculated: {{deliveryTime.calculated}}) <a href ng-click="deliveryTime.override = deliveryTime.calculated">use</a></span></div>
 		    </md-input-container>
 		    <div flex-xs="10" flex-gt-xs>
           <md-checkbox ng-model="deliveryTime.waive" aria-label="Waive Engineering Fee" class="md-warn md-hue-2">
@@ -35,7 +35,7 @@
 		      <label>Delivery Charge</label>
 		      <md-icon md-font-library="material-icons">attach_money</md-icon>
 		      <input name="delivery_charge" ng-model="deliveryCharge.override" type="number" ng-blur="checkAndSubmit(salesAdjustmentsForm,$index)" ng-disabled="deliveryCharge.waive">
-		      <div class="hint" ng-if="deliveryCharge.override !== deliveryCharge.calculated" ng-disabled="deliveryCharge.waive">Calculated: {{deliveryCharge.calculated}}</div>
+		      <div class="hint" ng-if="deliveryCharge.override !== deliveryCharge.calculated" ng-disabled="deliveryCharge.waive">Calculated: {{deliveryCharge.calculated}} <a href ng-click="deliveryCharge.override = deliveryCharge.calculated">use</a></div>
 		    </md-input-container>
 		    <div flex-xs="10" flex-gt-xs>
           <md-checkbox ng-model="deliveryCharge.waive" aria-label="Waive Engineering Fee" class="md-warn md-hue-2">

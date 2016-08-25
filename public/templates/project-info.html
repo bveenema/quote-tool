@@ -171,7 +171,7 @@
     <div layout-xs="column" layout-gt-xs="row">
       <md-input-container flex="100" flex-gt-xs="50">
         <label>Est. SqFt</label>
-        <input name="internal_est_sqft" type="number" min="10" max="50000" step="100" ng-model="internal.estSqFt" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
+        <input name="internal_est_sqft" type="number" min="10" max="50000" step="100" ng-model="internal.estSqFt" ng-model-options='{ debounce: 1000 }' ng-change='updateEngFee(internal.estSqFt)' required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
         <div ng-messages="projectInfoForm.internal_est_sqft.$error">
           <div ng-message="required">Size really does matter...</div>
           <div ng-message="number">That's not a number...</div>

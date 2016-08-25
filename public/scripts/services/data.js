@@ -14,4 +14,8 @@ angular.module('quotingToolApp')
   	$http.get('api/quotelayout')
   	.then(callback);
   }
+  this.getFeeTable = function(callback){
+    $http.get('api/feetable')
+    .then(callback);
+  }
 });

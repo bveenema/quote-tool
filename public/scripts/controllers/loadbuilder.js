@@ -8,18 +8,9 @@ angular.module('quotingToolApp')
 
   $scope.walls = [1];
   
-  
-  dataService.getBlocks(function(response) { 
-      response.data.blocks.forEach(function(object){
-        object.blocks.forEach(function(block){
-          block.count = [];
-        })
-        
-      })
-      $scope.blocks = response.data.blocks;
-      console.log($scope.blocks);
-    });
 
+
+// SCOPE FUNCTION: sum the weight of all blocks in all walls
   $scope.sumWeights = function(block, count, $index) {
 
     if(/^\+?(0|[1-9]\d*)$/.test(count) || count == ""){
@@ -38,9 +29,21 @@ angular.module('quotingToolApp')
   	}
   }
 
+// SCOPE FUNCTION: Add a wall to the load builder
   $scope.addWall = function() {
     $scope.walls.push($scope.walls.length+1);
   }
 
+// DATASERVICE: Get Blocks
+  dataService.getBlocks(function(response) { 
+      response.data.blocks.forEach(function(object){
+        object.blocks.forEach(function(block){
+          block.count = [];
+        })
+        
+      })
+      $scope.blocks = response.data.blocks;
+      console.log($scope.blocks);
+    });
   
 });

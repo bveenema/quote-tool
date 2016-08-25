@@ -1,0 +1,11 @@
+{
+	"markup": 0.4286,
+	"minCharge1": {"min": 0, "max": 746, "fee": 500},
+	"minCharge2": {"min": 1001, "max": 1340, "fee": 670},
+	"engineerFee": 	[
+										[747,0.67],
+										[1341,0.5],
+										[15001,0.4],
+										[25001,"Load Size too high"]
+									]	
+}
