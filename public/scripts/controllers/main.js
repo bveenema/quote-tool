@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('quotingToolApp')
-.controller('mainCtrl', function($scope, $filter, dataService) {
+.controller('mainCtrl', function($scope, $filter, dataService, mapService) {
   $scope.quoteLayout = [];
   $scope.internal = {};
 
@@ -27,32 +27,6 @@ angular.module('quotingToolApp')
 						   							};
 
 
-	var directionsRequestObject = 
-								{
-								  origin: "2 Gilson Farm Ln Hartland VT",
-								  destination: "grand rapids mi",
-								  travelMode: "DRIVING"
-								};
-
-
-
-	function calculateRoute(directionsService) {
-		var directionsService = new google.maps.DirectionsService;
-	    directionsService.route(directionsRequestObject, function(response, status) {
-	      if (status === 'OK') {
-	      	var travelTime = response.routes[0].legs[0].duration.value;
-	      	var directions = response.routes[0].legs[0].steps
-	        console.log(response)
-	        console.log(travelTime/60 +' minutes');
-	        console.log(travelTime/60/60 +' hours');
-	       	for(var i=0; i<directions.length; i++){
-	       		console.log(directions[i].instructions);
-	       	}
-	      } else {
-	        window.alert('Directions request failed due to ' + status);
-	      }
-	    });
-	  }
 
 // FUNCTION: Check for inputs that are TOUCHED and INVALID
   var checkTouchedAndInvalid = function(form){
