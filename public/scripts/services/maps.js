@@ -1,47 +1,28 @@
 // Creates the gservice factory. This will be the primary means by which we interact with Google Maps
 angular.module('quotingToolApp')
-  .factory('mapService', function($http){
+  .service('mapService', function(){
 
-  // Initialize Variables
-  // -------------------------------------------------------------
-  // Service our factory will return
-  var googleMapService = {};
-
-
-
-  var directionsRequestObject = 
-              {
-                origin: "2 Gilson Farm Ln Hartland VT",
-                destination: "grand rapids mi",
-                travelMode: "DRIVING"
-              };
-
-
-  googleMapService.refresh = function(){
-    calculateRoute();
+  this.getRoute = function(destination){
+    var DRO = 
+            {
+              origin: "2 Gilson Farm Ln Hartland VT",
+              destination: destination,
+              travelMode: "DRIVING"
+            };
+    return calculateRoute(DRO);
   }
 
-  function calculateRoute() {
+  function calculateRoute(directionsRequestObject) {
+    var route = {};
     var directionsService = new google.maps.DirectionsService;
     directionsService.route(directionsRequestObject, function(response, status) {
       if (status === 'OK') {
-        var travelTime = response.routes[0].legs[0].duration.value;
-        var directions = response.routes[0].legs[0].steps
-        console.log(response)
-        console.log(travelTime/60 +' minutes');
-        console.log(travelTime/60/60 +' hours');
-        for(var i=0; i<directions.length; i++){
-          console.log(directions[i].instructions);
-        }
+        route.roundTripTime = response.routes[0].legs[0].duration.value*2+3600;
+        route.directions = response.routes[0].legs[0].steps;
       } else {
         window.alert('Directions request failed due to ' + status);
       }
     });
+    return route;
   }
-
-// Refresh the page upon window load. Use the initial latitude and longitude
-google.maps.event.addDomListener(window, 'load',
-    googleMapService.refresh());
-
-return googleMapService;
 });

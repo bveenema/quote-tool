@@ -5,8 +5,6 @@ angular.module('quotingToolApp')
   $scope.quoteLayout = [];
   $scope.internal = {};
 
-  var feeTable = {};
-
   $scope.engineeringFee = 	{
    														override: 0,
 						   								calculated: 0,
@@ -59,37 +57,6 @@ angular.module('quotingToolApp')
     }
   }
 
-// FUNCTION: Calculate the engineering fee with markup
-	var calculateEngineerFee = function(sqft){
-		if(typeof sqft !== 'number'){
-			console.log("sqft must be a number", sqft);
-			return "error";
-		}
-		if(sqft <= feeTable.minCharge1.max){
-			return feeTable.minCharge1.fee*(1+feeTable.markup);
-		}
-		if(sqft >= feeTable.minCharge2.min && sqft <= feeTable.minCharge2.max){
-			return feeTable.minCharge2.fee*(1+feeTable.markup);
-		}
-		for(var i=feeTable.engineerFee.length-1; i>=0; i--){
-			if(sqft >= feeTable.engineerFee[i][0]){
-				if(typeof feeTable.engineerFee[i][1] ==='number'){
-					return sqft*feeTable.engineerFee[i][1]*(1+feeTable.markup);
-				}else{
-					return feeTable.engineerFee[i][1];
-				}
-			}
-		}
-	};
-
-// SCOPE FUNCTION: Udate engineering Fee
-	$scope.updateEngFee = function(sqft){
-		$scope.engineeringFee.calculated = Number(calculateEngineerFee(sqft).toFixed(0));
-		if($scope.engineeringFee.userUpdated === false){
-			$scope.engineeringFee.override = $scope.engineeringFee.calculated;
-		}
-	}
-
 // SCOPE FUNCTION: Check the form validation, update the toolbar and submit if all required inputs are valid
   $scope.checkAndSubmit = function(form,index){
     if(checkTouchedAndInvalid(form)){
@@ -104,6 +71,10 @@ angular.module('quotingToolApp')
   };
 
 
+// MAP SERVICE: Get travel times and directions
+  var route = mapService.getRoute("65 Maplewood Cr Walpole NH");
+
+
 // DATASERVICE: Get Quote Layout  
   dataService.getQuoteLayout(function(response) {
       $scope.quoteLayout = response.data.quoteLayout;
@@ -111,11 +82,5 @@ angular.module('quotingToolApp')
       	section.valid='';
       });
     });
-
-// DATASERVICE: Get Fee Table
-	dataService.getFeeTable(function(response){
-		feeTable = response.data.feeTable;
-		console.log("Fee Table", feeTable);
-	})
 
 });
