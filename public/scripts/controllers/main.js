@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('quotingToolApp')
-.controller('mainCtrl', function($scope, $filter, dataService, mapService) {
+.controller('mainCtrl', function($scope, $filter, dataService) {
   $scope.quoteLayout = [];
   $scope.internal = {};
 
@@ -23,6 +23,8 @@ angular.module('quotingToolApp')
 						   								calculated: 0,
 						   								waive: false
 						   							};
+
+  $scope.route = {};
 
 
 
@@ -70,9 +72,6 @@ angular.module('quotingToolApp')
     console.log($scope.quoteLayout[index].valid);
   };
 
-
-// MAP SERVICE: Get travel times and directions
-  var route = mapService.getRoute("65 Maplewood Cr Walpole NH");
 
 
 // DATASERVICE: Get Quote Layout  

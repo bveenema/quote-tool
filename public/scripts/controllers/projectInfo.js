@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('quotingToolApp')
-.controller('projectInfoCtrl', function($scope, dataService) {
+.controller('projectInfoCtrl', function($scope, dataService, mapService) {
   $scope.trucks = [];
 
   $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
@@ -42,8 +42,24 @@ angular.module('quotingToolApp')
     if($scope.engineeringFee.userUpdated === false){
       $scope.engineeringFee.override = $scope.engineeringFee.calculated;
     }
-  }
+  };
 
+// SCOPE FUNCTION: Update route and calculate fees
+  $scope.updateRoute = function(destination){
+    console.log("updateRoute ran");
+    mapService.getterRoute(destination, function(response){
+      console.log("mapService callback ran");
+      console.log(response);
+    })
+  };
+
+// MAP SERVICE: Get travel times and directions
+  var getRoute = function(destination){
+    console.log("getRoute ran");
+    var route = mapService.getRoute(destination);
+    console.log(route);
+    return route;
+  };
 
 // DATASERVICE: Get Fee Table
   dataService.getFeeTable(function(response){

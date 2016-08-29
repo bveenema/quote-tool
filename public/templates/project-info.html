@@ -21,7 +21,7 @@
     <div layout-xs="column" layout-gt-xs="row">
       <md-input-container flex-xs="100" flex-gt-xs="50">
         <label>Address</label>
-        <input name="project_address" ng-model="project.address" required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index)">
+        <input name="project_address" ng-model="project.address" ng-model-options='{ debounce: 1000 }' ng-change='updateRoute(project.address)' required md-no-asterisk ng-blur="checkAndSubmit(projectInfoForm,$index); ">
         <div ng-messages="projectInfoForm.project_address.$error">
           <div ng-message="required">We need to know where the wall is going</div>
         </div>
