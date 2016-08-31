@@ -43,7 +43,6 @@ angular.module('quotingToolApp')
         
       })
       $scope.blocks = response.data.blocks;
-      console.log($scope.blocks);
     });
   
 });

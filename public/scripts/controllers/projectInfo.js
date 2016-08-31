@@ -45,12 +45,38 @@ angular.module('quotingToolApp')
   };
 
 // SCOPE FUNCTION: Update route and calculate fees
-  $scope.updateRoute = function(destination){
-    console.log("updateRoute ran");
-    mapService.getterRoute(destination, function(response){
-      console.log("mapService callback ran");
-      console.log(response);
-    })
+  $scope.updateRoute = function(){
+    var strings = [
+                    $scope.project.address,
+                    $scope.project.city,
+                    $scope.project.state
+                  ];
+    var destination = strings.join(' ');
+    mapService.getRoute(destination, function(response){
+      $scope.route = response;
+      $scope.deliveryTime.calculated = Number((response.roundTripTime/3600).toFixed(2));
+      if($scope.deliveryTime.userUpdated === false){
+        $scope.deliveryTime.override = $scope.deliveryTime.calculated;
+      }
+    });
+    $scope.updateDeliveryFee();
+  };
+
+// SCOPE FUNCTION: Calculate and update delivery fee
+  $scope.updateDeliveryFee = function(){
+    console.log("updateDeliveryFee ran");
+    console.log
+    if($scope.internal.loadType){
+      var type = $scope.internal.loadType;
+      var lookup = {};
+      for (var i = 0; i < $scope.trucks.length; i++) {
+          lookup[$scope.trucks[i].type] = $scope.trucks[i];
+      }
+      $scope.deliveryCharge.calculated = $scope.deliveryTime.override*lookup[type].rate;
+      if($scope.deliveryCharge.userUpdated === false){
+        $scope.deliveryCharge.override = $scope.deliveryCharge.calculated;
+      }
+    }
   };
 
 // MAP SERVICE: Get travel times and directions

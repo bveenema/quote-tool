@@ -2,6 +2,8 @@
 
 angular.module('quotingToolApp')
 .controller('mainCtrl', function($scope, $filter, dataService) {
+  
+  
   $scope.quoteLayout = [];
   $scope.internal = {};
 
@@ -15,13 +17,15 @@ angular.module('quotingToolApp')
 	$scope.deliveryTime = 		{
 						   								override: 0,
 						   								calculated: 0,
-							   							waive: false
+							   							waive: false,
+                              userUpdated: false
 						   							};
    
   $scope.deliveryCharge = 	{
 						   								override: 0,
 						   								calculated: 0,
-						   								waive: false
+						   								waive: false,
+                              userUpdated: false
 						   							};
 
   $scope.route = {};
@@ -30,7 +34,6 @@ angular.module('quotingToolApp')
 
 // FUNCTION: Check for inputs that are TOUCHED and INVALID
   var checkTouchedAndInvalid = function(form){
-  	console.log("check touched and invalid just ran");
     var returnValue = false;
     angular.forEach(form, function(value, key) {
       if (typeof value === 'object' && value.hasOwnProperty('$modelValue') && value.$touched && value.$invalid){
@@ -68,8 +71,6 @@ angular.module('quotingToolApp')
     }else {
       $scope.quoteLayout[index].valid = '';
     }
-
-    console.log($scope.quoteLayout[index].valid);
   };
 
 
