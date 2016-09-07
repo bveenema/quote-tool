@@ -22,7 +22,7 @@
 }
 .main-body md-card {
 	flex-grow: 0;
-	flex-basis: 1000px;
+	width: 1000px;
 }
 
 .main-body md-card md-card-header {
