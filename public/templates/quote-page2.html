@@ -1,0 +1,128 @@
+<link rel="stylesheet" href="../css/quote.css">
+
+<div style="display: flex; justify-content: center">
+
+<div class="quote-wrapper">
+	<!-- Title -->
+	<div class="quote-title">
+		<div class="img"><img src="../img/RediRock.png"></div><h1>Estimate/Order</h1>
+	</div>
+	<!-- Header Block -->
+	<div class="quote-header">
+		<div>
+			<p>	
+				Redi-Rock Walls of Hoth<br>
+				Address<br>
+				City, State, Zip<br>
+			</p>
+			
+			<p>
+				Salesperson: {{salesperson.name}}<br>
+				Email: {{salesperson.name}}<br>
+				Office Phone: {{salesperson.officePhone}}<br>
+				Cell Phone: {{salesperson.cellPhone}}<br>
+				<a href>www.{{salesperson.website}}.com</a>
+			</p>
+		</div>
+		<div>			
+			<p>
+				Date: {{quote.date}}<br>
+				Take Off: {{internal.takeOffNumber}}<br>
+				FOB: {{internal.fob}}<br>
+				Shipping Method: {{internal.shippingMethod}}<br>
+				Freight: {{internal.freight???}}<br>
+				Terms: {{internal.terms}}<br>
+				Block Face: {{project.blockFace}}<br>
+				Estimated SF: {{internal.estSqFt}}<br>
+				Valid {{quote.validDuration}} Days
+			</p>
+		</div>
+
+	</div>
+	<!-- Customer Information Block -->
+	<div class="quote-customer-info">
+		<div>
+			<h2>Customer</h2>
+			<table class="customer-info-table">
+				<tr>
+					<td colspan="2">{{customer.name}}</td>
+				</tr>
+				<tr>
+					<td colspan="2">{{customer.address}}</td>
+				</tr>
+				<tr>
+					<td colspan="2">{{customer.city}} {{customer.state}}</td>
+				</tr>
+				<tr>
+					<td>Contact:</td>
+					<td>{{customer.contactName}}</td>
+				</tr>
+				<tr>
+					<td>Phone:</td>
+					<td>{{customer.contactPhone}}</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td>{{customer.contactEmail}}</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<h2>Project</h2>
+			<table class="customer-info-table">
+				<tr>
+					<td>{{project.name}}</td>
+				</tr>
+				<tr>
+					<td>{{project.address}}</td>
+				</tr>
+				<tr>
+					<td>{{project.city}} {{project.state}}</td>
+				</tr>
+			</table>
+		</div>
+		
+	</div>
+
+<!-- Notes and Special Conditions Block -->
+<div class="quote-notes">
+	<textarea>Notes & Special Conditions: {{quote.notes}}</textarea>
+</div>
+
+<!-- Terms Block -->
+<div class="quote-terms">
+	<ul>
+		
+		<li>This estimate is based upon information available at the time of the estimate.  Engineering, wall design and wall build changes may affect the final project price.</li>
+		<li>Freight is based on the material(s) listed in the estimate/order only.</li>
+		<li>Final wall design and layout is the responsibility of the customer.</li>
+		<li>Quoted blocks are 4000 PSI unless otherwise noted.</li>
+		<li>Custom product requires a 100% non-refundable deposit and includes but is not limited to custom colors.  Custom product is non-returnable.</li>
+		<li>All engineering revisions will be considered a change order, fees will apply.</li>
+		<li>COD customers - payment is required for materials, services and Redi-Rock product at time of delivery.  Payment for engineering or engineering services are required at time of order.</li>
+		<li>For delivered product(s), it is the customer's responsibility to unload the truck or trailer at the project site.  The customer is responsible for having equipment at the site, capable of safely off-loading of up to 3500 pound blocks. Forty five minutes is allowed for offloading the trailer.</li>
+		<li>Only like new unopened material is returnable.  The customer is responsible for return freight and a 20% restocking fee will apply to accepted returns.</li>
+		<li>Taxes and fees are the responsibility of the customer.</li>
+		<li>Effective May 1, 2011 a fuel surcharge may apply to quotes older than thirty days.</li>
+		<li>There will be 4.5% escalator applied to the above quoted prices effective January 1, 2017.  The pricing for the above referenced project shall remain in effect through December 31st, 2017.</li>
+	</ul>
+
+	<p>Efflorescence warning: All concrete and masonry materials can develop efflorescence.  Efflorescence appears as a powdery white deposit and is made up of salts and minerals from inside the concrete sometimes appearing as a hazy white film or streaks of white salt.  Efflorescence typically dissipates after the salts have evaporated and the concrete has dried inside.  Concrete that is always in contact with moisture and never completely dries may continually have efflorescence.  Efflorescence does not affect the structural integrity or indicate a faulty product."</p>
+
+	<p>Acceptance Of Estimate/Order - The above prices, specifications and conditions are satisfactory and hereby accepted.<br>Payment will be made as outlined above.</p>
+</div>
+
+<!-- Signature Block -->
+<div class="quote-signature">
+	<div>
+		<p>Date of Acceptance:_______________________</p>
+	</div>
+	<div>
+		<p>Signature_____________________________________</p>
+		<p>Printed Name__________________________________</p>
+		<em>Please sign, date and return pages 1 & 2</em>
+		</div>
+</div>
+
+</div>

@@ -17,8 +17,6 @@
 .main-body {
 	display: flex;
 	justify-content: center;
-	flex-wrap: wrap;
-	align-items: flex-start;
 }
 .main-body md-card {
 	flex-grow: 0;

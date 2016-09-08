@@ -10,7 +10,8 @@
       rel="stylesheet">
 
   <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+  <!-- <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css" >
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="css/styles.css">
@@ -21,7 +22,7 @@
 
   <ng-include src="'templates/toolbar.html'"></ng-include>
 
-  <div layout="column"  class="main-body" md-theme="validateTheme" ng-controller="mainCtrl">
+  <div layout="column" layout-align="start center" class="main-body" md-theme="validateTheme" ng-controller="mainCtrl">
       <md-card ng-init="hideContent = true" ng-repeat="section in quoteLayout">
         <md-card-header ng-click="hideContent = !hideContent">
           <md-toolbar ng-class="{'md-primary md-hue-3': section.valid==='', 'md-accent md-hue-2': section.valid==='Good!', 'md-warn md-hue-1': section.valid==='Error!'}">
@@ -38,9 +39,9 @@
         <ng-include src="'templates/' + section.template"></ng-include>
        </md-card-content>
       </md-card>
-    </div>
-    <div>
-      <md-button ng-disabled="true" class="md-primary md-raised">Review Quote</md-button><md-button class="md-primary md-raised">Back</md-button>
+    <div flex>
+      <md-button ng-disabled="false" class="md-primary md-raised" ng-click="showPanel($event)">Review Quote</md-button>
+      <md-button class="md-primary md-raised">Back</md-button>
     </div>
   </div>
 
@@ -53,7 +54,8 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
 
   <!-- Angular Material Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.js"></script>
 
   <!-- Google Maps API Script -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJWpnDlqAAzleh5dKRj7pFuINKKy3641Y"></script>

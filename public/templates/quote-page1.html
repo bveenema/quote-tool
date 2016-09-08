@@ -1,0 +1,142 @@
+<link rel="stylesheet" href="../css/quote.css">
+
+<div style="display: flex; justify-content: center">
+
+<div class="quote-wrapper">
+	<!-- Title -->
+	<div class="quote-title">
+		<div class="img"><img src="../img/RediRock.png"></div><h1>Estimate/Order</h1>
+	</div>
+	<!-- Header Block -->
+	<div class="quote-header">
+		<div>
+			<p>	
+				Redi-Rock Walls of Hoth<br>
+				Address<br>
+				City, State, Zip<br>
+			</p>
+			
+			<p>
+				Salesperson: {{salesperson.name}}<br>
+				Email: {{salesperson.name}}<br>
+				Office Phone: {{salesperson.officePhone}}<br>
+				Cell Phone: {{salesperson.cellPhone}}<br>
+				<a href>www.{{salesperson.website}}.com</a>
+			</p>
+		</div>
+		<div>			
+			<p>
+				Date: {{quote.date}}<br>
+				Take Off: {{internal.takeOffNumber}}<br>
+				FOB: {{internal.fob}}<br>
+				Shipping Method: {{internal.shippingMethod}}<br>
+				Freight: {{internal.freight???}}<br>
+				Terms: {{internal.terms}}<br>
+				Block Face: {{project.blockFace}}<br>
+				Estimated SF: {{internal.estSqFt}}<br>
+				Valid {{quote.validDuration}} Days
+			</p>
+		</div>
+
+	</div>
+	<!-- Customer Information Block -->
+	<div class="quote-customer-info">
+		<div>
+			<h2>Customer</h2>
+			<table class="customer-info-table">
+				<tr>
+					<td colspan="2">{{customer.name}}</td>
+				</tr>
+				<tr>
+					<td colspan="2">{{customer.address}}</td>
+				</tr>
+				<tr>
+					<td colspan="2">{{customer.city}} {{customer.state}}</td>
+				</tr>
+				<tr>
+					<td>Contact:</td>
+					<td>{{customer.contactName}}</td>
+				</tr>
+				<tr>
+					<td>Phone:</td>
+					<td>{{customer.contactPhone}}</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td>{{customer.contactEmail}}</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<h2>Project</h2>
+			<table class="customer-info-table">
+				<tr>
+					<td>{{project.name}}</td>
+				</tr>
+				<tr>
+					<td>{{project.address}}</td>
+				</tr>
+				<tr>
+					<td>{{project.city}} {{project.state}}</td>
+				</tr>
+			</table>
+		</div>
+		
+	</div>
+
+	<!-- Item Table -->
+	<div class="quote-item-table">
+
+		<table>
+			<tr><th>Qty</th>		<th>SF</th>					<th> Block Description</th>																									<th>Block Price</th>	<th>SF Price</th>	<th>Total</th>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td> Freestanding, 28" or 41" Full Block </td>															<td>&nbsp;</td>				<td>&nbsp;</td>		<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td> Freestanding, 28" or 41" Half Block </td>															<td>&nbsp;</td>				<td>&nbsp;</td>		<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td> 60" Full Block </td>																										<td>&nbsp;</td>				<td>&nbsp;</td>		<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td> 60" Half Block </td>																										<td>&nbsp;</td>				<td>&nbsp;</td>		<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td> Custom Full Block (non-returnable) </td>																<td>&nbsp;</td>				<td>&nbsp;</td>		<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td> Custom Half Block (non-returnable) </td>																<td>&nbsp;</td>				<td>&nbsp;</td>		<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td> Integral Or Topical Color Option Full Block </td>											<td>&nbsp;</td>				<td>&nbsp;</td>		<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td> Integral Or Topical Color Option Half Block </td>											<td>&nbsp;</td>				<td>&nbsp;</td>		<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td>&nbsp;</td>																															<td>&nbsp;</td>				<td>&nbsp;</td>		<td>&nbsp;</td>	</tr>
+
+			<tr><th>Qty</th>		<th>LF</th>					<th>Description</th>																												<th colspan="2">Each Price</th>					<th>Total</th>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td>Capstones</td>																													<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td>&nbsp;</td>																															<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			 
+			<tr><th>Qty</th>		<th>Item ID</th>		<th> Description </th>																											<th colspan="2">Each Price</th>					<th>Total</th>	</tr>
+			<tr><td>&nbsp;</td>	<td>RRPLAN</td>			<td> Engineering Fees </td>																									<td colspan="2">$1,071.43</td>					<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RRCHAIN</td>		<td> Lifting Chain (sold by the each, non-returnable)</td>									<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RR34JB</td>			<td> J-Bolts - 3/4" (sold by the each with bolt, nut & clip)</td>						<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RRTYPE1AT</td>	<td> Type 1AT Fiberglass Connecting Rod </td>																<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>REPA52</td>			<td> Titebond HD Construction Adhesive 28 oz. (4 caps per tube)</td>				<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td>&nbsp;</td>																															<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			 
+			<tr><th>Qty</th>		<th>Item ID</th>		<th> Description</th>																												<th colspan="2">SY Price</th>						<th>Total</th>	</tr>
+			<tr><td>&nbsp;</td>	<td>RR3XT</td>			<td> Grid 3XT (6' = 100 SY, 12' = 200SY) </td>															<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RR5XT</td>			<td> Grid 5XT (6' = 100 SY, 12' = 200SY) </td>															<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RR8XT</td>			<td> Grid 8XT (6' = 100 SY, 12' = 267SY) </td>															<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RR10XT</td>			<td> Grid 10XT (12' = 267SY) </td>																					<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RRSF35</td>			<td> Grid SF35 (6' = 100 SY, 12' = 200SY) </td>															<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RRSF55</td>			<td> Grid SF55 (6' = 100 SY, 12' = 200SY) </td>															<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RRSF80</td>			<td> Grid SF80 (6' = 100 SY, 12' = 200SY) </td>															<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RRSF110</td>		<td> Grid SF110 (6' = 100 SY, 12' = 200SY) </td>														<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>&nbsp;</td>			<td>&nbsp;</td>																															<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			 
+			<tr><th>Qty</th>		<th>Item ID</th>		<th> Freight </th>																													<th colspan="2">Each Price</th>					<th>Total</th>	</tr>
+			<tr><td>&nbsp;</td>	<td>RRDELVL</td>		<td> Redi-Rock Delivery By Load </td>																				<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+			<tr><td>&nbsp;</td>	<td>RRDELVLMA</td>	<td> Redi-Rock Delivery By Load - MA </td>																	<td colspan="2">&nbsp;</td>							<td>&nbsp;</td>	</tr>
+
+			<tr><td colspan="5">Estimate Total</td><td></td></tr>
+		</table>
+
+	</div>
+
+	<!-- Footer -->
+	<div class="quote-footer">
+		<p>Estimate Does Not Include State Taxes or other Applicable Fees</p>
+	</div>
+
+</div>
+
+</div>

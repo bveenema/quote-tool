@@ -1,0 +1,145 @@
+/*************************************
+/Quote
+/************************************/
+
+.quote-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.quote-title, 
+.quote-header,
+.quote-customer-info,
+.quote-item-table,
+.quote-footer,
+.quote-notes,
+.quote-terms,
+.quote-signature {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 800px;
+}
+
+/*************************************
+/Quote Title
+/************************************/
+
+.quote-title {
+	align-items: flex-end;
+}
+
+.quote-title h1 {
+	font-size: 3em;
+	flex-grow: 1;
+}
+
+.quote-title .img {
+	flex-grow: 2;
+}
+
+.quote-title .img img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+/*************************************
+/Quote Customer Info
+/************************************/
+
+.quote-customer-info {
+	margin-bottom: 15px;
+}
+
+.quote-customer-info div {
+	flex-basis: 40%;
+}
+.quote-customer-info h2 {
+	font-size: 1.2em;
+	margin: 5px 0 5px 15px;
+}
+
+
+/*************************************
+/Quote Item Table
+/************************************/
+
+.quote-item-table {
+	justify-content: center;
+}
+
+.quote-item-table table {
+	font-size: 12px;
+	border-collapse: collapse;
+	border: 2px solid #000; 
+	font-family: Arial, Helvetica, sans-serif;
+	width: 100%;
+} 
+.quote-item-table td {
+	padding: 4px;
+	margin: 3px;
+	border: 2px solid #000;
+}
+.quote-item-table th {
+	background-color: #AAA; 
+	padding: 5px;
+	color: #000;
+	font-weight: bold;
+	border: 2px solid #000;
+}
+
+table.customer-info-table {
+	border-collapse: collapse;
+	border: 1px solid #000;
+	width: 100%;
+}
+
+.customer-info-table td{
+	padding: 4px;
+	margin: 3px;
+	border: 1px solid #000;
+}
+
+/*************************************
+/Quote Footer
+/************************************/
+
+.quote-footer {
+	justify-content: center;
+}
+
+.quote-footer p {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+
+
+/*************************************
+/Quote Notes
+/************************************/
+
+.quote-notes textarea {
+	width: 100%;
+	height: 180px;
+	resize: none;
+}
+
+/*************************************
+/Quote Terms
+/************************************/
+
+.quote-terms {
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+
+/*************************************
+/Quote Signature
+/************************************/
+
+.quote-signature em {
+	background-color: yellow;
+	padding: 10px;
+}
